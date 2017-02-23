@@ -1,0 +1,70 @@
+.dataModule-main{
+    min-height: 20rem;
+    min-width: 20rem;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    word-break: break-all;
+}
+.dataModule-main *{
+    font-size: .9rem;
+}
+.dataModule-title{
+    line-height: 2rem;
+    text-align: center;
+}
+.dataModal{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+.dataModule-data{
+    height: 16rem;
+    display: table;
+    width: 100%;
+}
+.a:hover{
+    background: #fbfbfb;
+}
+.dataModule-data div{
+    font-size: 3rem;
+    text-align: center;
+    vertical-align: center;
+}
+.module-spe-style{
+    padding-right: 1rem;
+}
+.dataModule-company{
+    /*line-height: 3rem;*/
+    text-align: center;
+    padding: .7rem 0;
+}
+.dataModule-company *{
+    font-size: 1rem;
+}
+.dataModule-date{
+    text-indent: 1rem;
+    line-height: 2rem;
+}
+.dataModule-date > div > div{
+    text-indent: 0;
+}
+.moduleLoading{
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+.moduleColorGreen{
+    color: #00c795;
+}
+.moduleColorRed{
+    color: #a94442;
+}
+.moduleColorYellow{
+    color: #edc016;
+}
+.moduleColorBlue{
+    color: #1667A9;
+}

@@ -1,0 +1,146 @@
+ {
+  "login":{
+    "Chinese": "登录",
+    "url": "/api/login/login",
+    "type": "post",
+    "data": ["UserName", "Password"],
+    "dataType": "json"
+  },
+  "getMenu": {
+    "Chinese": "获取菜单栏",
+    "url":"/api/home/GetMeun",
+    "type":"get",
+    "data": ["empId", "groupId", "token"],
+    "dataType": "json"
+  },
+  "getIndex": {
+    "Chinese": "获取主页数据(welcome)",
+    "url": "/api/Home/Index",
+    "type": "get",
+    "data": ["token", "empId", "startTime", "endTime"],
+    "dataType": "json"
+  },
+  "getState": {
+    "Chinese": "获取某员工名下业务员列表",
+    "url": "/api/Home/GetStatistics",
+    "type": "get",
+    "data": ["token", "empId", "startTime", "endTime", "state"],
+    "dataType": "json"
+  },
+  "getEmployee" : {
+    "Chinese": "获取某业务员",
+    "url": "/api/Employees/GetEmployeesItem",
+    "type": "get",
+    "data": ["token", "empId"],
+    "dataType": "json"
+  },
+  "getPercent" : {
+    "Chinese": "获取业绩百分比",
+    "url": "/api/Home/GetPercent",
+    "type": "get",
+    "data": ["token","empId"],
+    "dataType": "json"
+  },
+  "getApproLendList":{
+    "Chinese": "获取审批列表",
+    "url": "/api/Home/GetApproLendList",
+    "type": "get",
+    "data": ["token","pageIndex", "pageSize"],
+    "dataType": "json"
+  },
+  "getNewLendList": {
+    "Chinese": "获取最新投资列表",
+    "url": "/api/Customer/GetNewLendList",
+    "type": "get",
+    "data": ["token", "pageIndex", "pageSize"],
+    "dataType": "json"
+  },
+  "getCustomerList": {
+    "Chinese": "获取客户列表",
+    "url": "/api/Customer/GetCustomerList",
+    "type": "get",
+    "data": ["Token", "loginEmpId", "leaderEmpId","lendState","pageIndex","pageSize",
+      "customerName","customerMobile","company","customerState"],
+    "dataType":"json"
+  },
+  "getEmployeesList": {
+    "Chinese": "获取员工列表",
+    "url": "/api/Employees/GetEmployeesList",
+    "type": "get",
+    "data": ["Token","empId","roleId","mobile","empName","chief","company","pageIndex","pageSize"],
+    "dataType":"json"
+  },
+  "getCustomerLendList":{
+    "Chinese": "获取某人投资列表",
+    "url": "/api/Customer/GetCustomerLendList",
+    "type": "get",
+    "data": ["Token","customerId","pageIndex","pageSize","contractType"],
+    "dataType":"json"
+  },
+  "getRole": {
+    "Chinese": "获取角色",
+    "url": "/api/Employees/GetRole",
+    "type": "get",
+    "data": ["token", "empID"]
+  },
+  "getLeader": {
+    "Chinese": "获取推荐人",
+    "url":"/api/Employees/GetLeaderByCustomer",
+    "type": "get",
+    "data": ["token", "roleID", "company"]
+  },
+  "getContractType":{
+    "Chinese": "获取合同类型",
+    "url":"/api/Customer/GetCustomerLendSelectList",
+    "type": "get",
+    "data": ["Token"]
+  },
+  "dimission":{
+    "Chinese": "提交离职",
+    "url":"/api/Employees/BatchOperationDimission",
+    "type": "post",
+    "data": ["Token","empIdString"]
+  },
+  "getLeaderTrue":{
+    "Chinese": "正宗查询上级",
+    "url":"/api/Employees/GetLeader",
+    "type": "get",
+    "data": ["token", "roleID", "company"]
+  },
+  "addEmployee": {
+    "Chinese": "添加员工",
+    "url": "/api/Employees/AddEmployees",
+    "type": "post",
+    "data": ["Token","Name","Mobile","Company", "Role","Chief"]
+  },
+  "editorEmployee":{
+    "Chinese": "修改员工信息",
+    "url" : "/api/Employees/EditEmployees",
+    "type": "post",
+    "data": ["Token","Name","Company", "Role","Chief","empID"]
+  },
+  "editorSalesman":{
+    "Chinese": "修改业务员",
+    "url": "/api/Customer/ChangeAllotEmpId",
+    "type": "post",
+    "data": ["Token","empId", "customerId"]
+  },
+  "editorRecommend":{
+    "Chinese": "修改推荐人",
+    "url": "/api/Customer/ChangeChangeReferee",
+    "type": "post",
+    "data": ["Token","empId", "customerId"]
+  },
+  "sendMessage": {
+    "Chinese": "发送短信",
+    "url":"/api/Employees/SendSMSCode",
+    "type": "post",
+    "data": ["Token","CheckCode"]
+  },
+  "changePassword": {
+    "Chinese": "修改密码",
+    "url":"/api/Employees/ChangePassword",
+    "type": "post",
+    "data": ["Token", "empId", "oldPassword", "newPassword", "MsgVCode"]
+  }
+}

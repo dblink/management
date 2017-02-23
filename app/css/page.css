@@ -1,0 +1,107 @@
+.page{
+    height: inherit;
+}
+.page .table{
+    height: 90%;
+}
+.table-content,
+.table-content *{
+    font-size: .9rem;
+}
+.menu,
+.selection .row,
+.loading{
+    height: 3rem;
+    line-height: 3rem;
+}
+.menu,
+.selection{
+    width: 90%;
+    margin: auto;
+}
+.selection input {
+    border-color: rgb(169, 169, 169);
+}
+.selection input,
+.selection select {
+    width: 80%;
+    font-size: .9rem;
+}
+.selection input *,
+.selection select *{
+    font-size: .9rem;
+}
+.selection.option,
+.selection.option *{
+    font-size: .9rem;
+}
+.enterPage {
+    height: 93%;
+}
+.pieWord{
+    color: #333;
+    width: 110px;
+    float: left;
+}
+.pieWord div{
+    /*text-indent: 1rem;*/
+    font-size: .8rem;
+    padding: .5rem 0;
+    text-align: left;
+}
+.pieWord i{
+    padding: 0 .5rem;
+    font-size: 12px;
+    margin: 0 5px;
+}
+.canvasImage{
+    width: 310px;
+    margin: auto;
+}
+.pieWord div:nth-child(5) i{
+    background: #4CD990;
+}
+.pieWord div:nth-child(4) i{
+    background: #FFCD01;
+}
+.pieWord div:nth-child(3) i{
+    background: #1667A9;
+}
+.pieWord div:nth-child(2) i{
+    background: #EA533F;
+}
+.pieWord div:nth-child(1) i{
+    background: #A849AC;
+
+}
+.canvas{
+    display: block;
+    float: left;
+    margin-bottom:.5rem;
+    /*margin-left: 10px;*/
+    margin-right: 5px;
+}
+.time-select{
+    position: absolute;
+    width: 18rem;
+    height: 20.5rem;
+    background: #fff;
+    border-bottom: none;
+    z-index: 1;
+}
+.download{
+    position: absolute;
+    padding: .5rem;
+    right: 0;
+    top: 0;
+    font-size: 1.5rem;
+    color: #eee;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -ms-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+}
+.download:hover{
+    color: #333;
+}

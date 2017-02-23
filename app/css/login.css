@@ -1,0 +1,230 @@
+.no-scroll-contain{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+.form{
+    z-index: 2;
+    width: 20rem;
+    margin: auto;
+}
+.form .container{
+    position: relative;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    margin: auto;
+    width: 20rem;
+    padding: 18px 0;
+}
+.form .row .inputGroup,
+.form .selectGroup{
+    height: 100%;
+    display: inline;
+}
+.form .selectGroup select{
+    height: 100%;
+}
+.form .vcode{
+    height: 2rem;
+    margin-left: 1%;
+}
+/*.form a.buttonClick{
+    display: inline-block;
+    height: 3rem;
+    line-height: 3rem;
+}*/
+/*.form .loginContent{
+    height: 3.5rem;
+}
+
+.form .loginContent input,
+.form .loginContent select{
+    border-color: #eee;
+    font-size: .9rem;
+}
+.selection input,
+.selection select,
+.form .loginContent input,
+.form .loginContent select,
+.form .loginContent span{
+    padding: .7rem .5rem;
+    border-width: 0 0 1px 0;
+    color: #333;
+}
+.form .loginContainer input{
+    color:#fff;
+}*/
+/*.form .button{
+    padding: .5rem 0;
+}
+.form .button input{
+    padding: .6rem 0;
+    border: #EA533F 1px solid;
+    width: 60%;
+    background: inherit;
+    transition: .2s;
+}
+.form .button input:hover{
+    background: #EA533F;
+    color: #fff;
+    cursor: pointer;
+}*/
+.form .close{
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 0 .5rem;
+}
+.form .close:hover{
+    cursor: pointer;
+    background: #eee;
+ }
+/*new useful*/
+.form .error{
+    font-size: .9rem;
+    position: relative;
+    padding: 0 10%;
+    color: #333;
+    overflow: hidden;
+    transition: .5s height;
+}
+.form .error.hide{
+    height: 0;
+    line-height: 2rem;
+}
+.form .error.show{
+    height: 2rem;
+    line-height: 2rem;
+}
+.form *{
+    font-size: .9rem;
+}
+.form input,
+.form select{
+    border: none;
+}
+.form .row{
+    height: 2.5rem;
+    line-height: 2.5rem;
+    padding: .5rem 0;
+    width: 90%;
+    margin: auto;
+}
+.form .row i{
+    font-style: normal;
+    display: inline-block;
+    vertical-align: top;
+}
+.form .input{
+    height: 100%;
+    vertical-align: top;
+    padding: 0 .3rem;
+}
+.form .vcode-image{
+    display: inline-block;
+    height: 100%;
+}
+/*end*/
+/*.form .error span{
+    padding: 0 .5rem;
+}
+.form .quit .content{
+    height: 8rem;
+    line-height: 8rem;
+    text-align: center;
+}
+.form .quit .chose input{
+    border: none;
+    width: 50%;
+    height: 2rem;
+}
+.form .quit .chose input:hover{
+    cursor: pointer;
+    background: #ededed;
+}
+.form .loginContainer{
+    background: none;
+    border: none;
+}*/
+/*userful*/
+.login-input{
+    background: rgba(0, 0, 0, .5);
+    color: #fff;
+}
+.login-input::-webkit-input-placeholder{
+    color: #fff;
+}
+.login-input:-moz-placeholder{
+    color: #fff;
+}
+.login-input:-ms-input-placeholder{
+    color: #fff;
+}
+.login-input::-moz-placeholder{
+    color:#fff;
+}
+.login-submit{
+    background: url("../img/login_bottom.png") no-repeat center center;
+    background-size: 100% auto;
+    color:#fff;
+}
+.login{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+/*end*/
+/*.form .loginContainer input[type="submit"]{
+    width: 80%;
+    background: url("../img/login_bottom.png") no-repeat center center;
+    background-size: 100% auto;
+    border: none;
+}
+.form .loginContainer input[type="submit"]:hover{
+    background: url("../img/login_bottom.png") no-repeat center center;
+    background-size: 100% auto;
+}
+.form .loginContainer .error{
+    background: rgba(234, 83, 63, 0.71);
+}*/
+.form .vcode{
+    vertical-align: top;
+}
+.form .tip{
+    width: 90%;
+    margin:.5rem auto;
+    text-align: right;
+}
+.form .button-send{
+    border:1px solid #DDBE91;
+    transition: .3s background;
+}
+.form .button-send:hover{
+    background: #DDBE91;
+    color: #fff;
+}
+.form .sureQuit{
+    height: 8rem;
+    line-height: 8rem;
+    text-align: center;
+    font-size: .9rem;
+}
+.form .chose input{
+    border: none;
+    width: 50%;
+    height: 2rem;
+}
+.form .chose input:hover{
+    cursor: pointer;
+    background: #ededed;
+}
+.nowPeople{
+    text-align: right;
+    width: 90%;
+    margin: .5rem auto;
+}

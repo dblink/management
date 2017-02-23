@@ -1,0 +1,18 @@
+.modal-bg{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.30);
+    z-index: 2;
+}
+.modal-main{
+    position: relative;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    margin: auto;
+    width: 20rem;
+    padding: 18px 0;
+}

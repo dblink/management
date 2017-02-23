@@ -1,0 +1,297 @@
+@media screen and ( min-width: 212px) and (max-width: 318px){
+    /*213px显示屏样式 LG Optimus One*/
+    *{
+        font-size: 12px;
+    }
+    .page .list{
+        height: 24rem;
+    }
+    .form .container{
+        width: 80%;
+    }
+}
+@media screen and ( min-width: 319px) and (max-width: 358px){
+    /*320px显示屏样式 苹果4/4S/5C/5S黑莓Z30 */
+    *{
+        font-size: 16px;
+    }
+    .page .list{
+        height: 24rem;
+    }
+    .form .container{
+        width: 80%;
+    }
+}
+@media screen and ( min-width: 359px) and (max-width: 382px){
+    /*360px显示屏样式 索尼Z1*/
+    *{
+        font-size: 16px;
+    }
+    .page .list{
+        height: 24rem;
+    }
+    .form .container{
+        width: 80%;
+    }
+}
+@media screen and ( min-width: 383px) and (max-width: 398px){
+    /*384px显示屏样式 黑莓Z10 谷歌 Nexus 6 LG Optimus G*/
+    *{
+        font-size: 16px;
+    }
+    .page .list{
+        height: 24rem;
+    }
+    .form .container{
+        width: 80%;
+    }
+}
+@media screen and ( min-width: 399px) and ( max-width: 410px){
+    /*399px显示屏样式 三星galaxyNote*/
+    *{
+        font-size: 16px;
+    }
+    .page .list{
+        height: 24rem;
+    }
+    .form .container{
+        width: 80%;
+    }
+}
+@media screen and ( min-width: 411px) and (max-width: 422px) {
+    /*414px显示屏样式 苹果6plus*/
+    * {
+        font-size: 16px;
+    }
+    .page .list{
+        height: 24rem;
+    }
+}
+@media screen and ( min-width: 423px) and (max-width: 478px){
+    /*424px显示屏样式 LG 4X */
+    *{
+        font-size: 16px;
+    }
+    .page .list{
+        height: 24rem;
+    }
+}
+@media screen and ( min-width: 479px) and (max-width: 538px){
+    /*480px显示屏样式 索尼MT27i Xperia sola*/
+    *{
+        font-size: 16px;
+    }
+    .page .list{
+        height: 24rem;
+    }
+}
+@media screen and (max-width: 600px) {
+    .dataModule-main {
+        width: 90%;
+        margin: 1rem auto;
+    }
+}
+@media screen and (min-width: 601px) {
+    .dataModule-main {
+        float: left;
+        margin: 1rem 0 0 1rem;
+    }
+}
+@media screen and ( min-width: 539px) and (max-width: 1023px){
+    /*640px显示屏样式 摩托罗拉Droid3/4/Razr Atrix 4g*/
+    *{
+        font-size: 16px;
+    }
+    .page .list{
+        height: 24rem;
+    }
+}
+@media screen and ( min-width: 1024px){
+    /*640px显示屏样式 摩托罗拉Droid3/4/Razr Atrix 4g*/
+    *{
+        font-size: 16px;
+    }
+    .pc-hidden{
+        display: none;
+    }
+    .page .list{
+        height: 33rem;
+    }
+    .pc-background-fff{
+        background: #fff;
+    }
+    .login-image{
+        background: url("../img/login_pc.jpg") center center no-repeat;
+        background-size: 100% auto;
+    }
+    .phone-no-relative{
+        position: relative;
+    }
+}
+@media screen and (max-width: 1023px){
+    select,input,textarea{
+        -webkit-appearance:none
+    }
+    .phone-hidden{
+        display: none;
+    }
+    .phone-block{
+        display: block!important;
+    }
+    .table .row{
+        width: 100%;
+    }
+    .selection input, .selection select{
+        width: 90%;
+    }
+    .table > .row > .col.phone-percent-15{
+        width: 15%;
+    }
+    .table > .row > .col.phone-percent-0{
+        width: 0;
+        overflow: hidden;
+    }
+    .table > .row > .col.phone-percent-10{
+        width: 10%;
+    }
+    .table > .row > .col.phone-percent-20{
+        width: 20%;
+    }
+    .table > .row > .col.phone-percent-25{
+        width: 25%;
+    }
+    .table > .row > .col.phone-percent-30{
+        width: 30%;
+    }
+    .table > .row > .col.phone-percent-35{
+        width: 35%;
+    }
+    .table > .row > .col.phone-percent-40{
+        width: 40%;
+    }
+    .phone-width-full{
+        width: 100%;
+    }
+    .phone-bottom-bar{
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 3rem;
+        z-index: 1;
+    }
+    .nav > li{
+        background: #fff;
+        border: none;
+        text-align: center;
+        text-indent: 0;
+        height: 3rem;
+        line-height: 3rem;
+    }
+    .background-fff-80{
+        background: rgba(255, 255, 255, 0.8)!important;
+        color: #222;
+    }
+    .nav > li.clicked:before{
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        left: 0;
+        top: auto;
+        bottom: 0;
+        background: #EA533F;
+    }
+    .nav > li:first-child{
+        border-top:none;
+    }
+    .nav > li > ul > li{
+        border:none;
+        text-indent: 0;
+        text-align: center;
+    }
+    body{
+        background: #fff;
+    }
+    .phone-relative{
+        position: relative;
+        padding-bottom: 3rem;
+    }
+    .phone-inherit{
+        position: inherit;
+        padding: 3rem 0;
+    }
+    .nav > li > ul {
+        display: none;
+        position: absolute;
+        top:auto;
+        bottom: 100%;
+        left: 0;
+        width: 100%;
+        background: #fff;
+    }
+    .phone-width-percent-90{
+        width: 90%!important;
+    }
+    .phone-block-5{
+        width: 20%;
+        float: left;
+    }
+    .phone-block-4{
+        width: 25%;
+        float: left;
+    }
+    .phone-block-3{
+        width: 33%;
+        float: left;
+    }
+    .phone-block-2{
+        width: 50%;
+        float: left;
+    }
+    .phone-block-1{
+        width: 100%;
+        float: left;
+    }
+    .phone-block-2-30{
+        width: 30%;
+        float: left;
+    }
+    .phone-block-2-40{
+        width: 40%;
+        float: left;
+    }
+    .phone-fixed{
+        position: fixed;
+    }
+    .enterPage{
+        height: auto;
+    }
+    .absolute-hidden-page{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        overflow: hidden;
+        z-index:-1;
+    }
+/*    .start-image{
+        background: url("../img/loading_bg.jpg") center center no-repeat;
+        background-size: auto 100%;
+    }*/
+    .welcome-image{
+        background: url("../img/welcome.jpg") center center no-repeat;
+        background-size: auto 100%;
+    }
+    .login-image{
+        background: url("../img/login_phone.jpg") center center no-repeat;
+        background-size: 100% auto ;
+    }
+    .moduleLoading{
+        z-index: -1;
+    }
+    .phone-no-relative{
+        position: static;
+    }
+}

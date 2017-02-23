@@ -1,0 +1,63 @@
+#date{
+    width: 300px;
+    background: #fff;
+    margin: 10% auto;
+}
+.date-chose{
+    width: 98%;
+    padding: 1%;
+    position: relative;
+}
+.date-chose *{
+    font-size: 14px;
+}
+.date-row{
+    word-break: break-all;
+}
+.date-title{
+    text-align: center;
+    margin: 5px 0;
+}
+.date-input{
+    border: none;
+    background: none;
+    padding: 5px;
+    text-align: center;
+}
+.date-chose .date-days span,
+.date-chose .date-days a{
+    width: 10%;
+    display: block;
+    float: left;
+    margin: 1px 1%;
+    padding: 0 1%;
+    user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+}
+.date-chose .date-days a.nowDay{
+    text-decoration: underline;
+}
+.date-chose .date-days a:hover{
+    background: #eee;
+}
+.date-chose .weekend{
+    color: #ff8489;
+}
+.date-chose .weekend.no-now-month{
+    color: #FFD2D7;
+}
+.date-chose .no-now-month{
+    color: #eee;
+}
+.date-chose .close{
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: .2rem .5rem;
+}
+.date-chose .close:hover{
+    cursor: pointer;
+    background: #eee;
+}

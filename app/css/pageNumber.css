@@ -1,0 +1,26 @@
+.page-number {
+    text-align: center;
+    font-size: .9rem;
+    padding:1rem 0;
+    /*width: 80%;*/
+}
+.page-number *{
+    font-size: .9rem;
+}
+.page-number input{
+    border-width: 0 0 1px 0;
+    width: 5%;
+}
+.page-number >span,
+.page-number input,
+.page-number a{
+    padding: .5rem 1rem;
+    border: 1px #F17D6E solid;
+    margin-left: .5rem;
+}
+.page-number a:hover{
+    background: #F17D6E;
+}
+.page-number a.clicked{
+    background: #F17D6E;
+}

@@ -1,0 +1,421 @@
+/*
+    change 2016/10/17
+*/
+*{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    font-family: "Microsoft Yahei", Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    *zoom:1;
+}
+select,
+textarea,
+input{
+    background-color: #fff;
+    border-radius: 0;
+    box-shadow:none;
+}
+input[type="submit"]{
+    border: none;
+}
+.index-nav{
+    height: 79px;
+}
+.max-width{
+    max-width: 1024px;
+}
+.overflow-auto{
+    overflow-y:auto;
+}
+.success-color{
+   color: #00c795;
+}
+.wrong-color{
+    color: #a94442
+}
+.warming-color{
+    color: #edc016;
+}
+.href-color{
+    color: #1667A9;
+}
+.normal-color{
+    color:#eee;
+}
+.white-color{
+    color: #fff;
+}
+.success-bg-color{
+    background: #47C7A7;
+}
+.wrong-bg-color{
+    background: #F17D6E;
+}
+.warming-bg-color{
+    background: #edc016;
+}
+.href-bg-color{
+    background: #1667A9;
+}
+body,.normal-bg-color{
+    background: #eee;
+}
+.white-bg-color{
+    background: #fff;
+}
+
+.tap,
+.checkbox{
+    position: relative;
+}
+.tap:before,
+.checkbox:before{
+    content: '';
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index:1;
+}
+.tap.active{
+    background: #eee;
+}
+a,
+.a{
+    cursor: pointer;
+    color: #333;
+}
+.table{
+    display: table;
+    width: 100%;
+}
+.va-middle{
+    display: table-cell;
+    vertical-align: middle;
+}
+.text-underline{
+    text-decoration: underline;
+}
+.height-full{
+    height: 100%;
+}
+
+.text-right{
+    text-align: right;
+}
+.text-center{
+    text-align: center;
+}
+.text-left{
+    text-align: left;
+}
+.font-normal{
+    font-size: 1rem!important;
+}
+
+.text-indent-2x{
+    text-indent: 2rem;
+}
+.text-indent-1x{
+    text-indent: 1rem;
+}
+.text-indent{
+    text-indent: .5rem;
+}
+.cursor-pointer{
+    cursor: pointer;
+}
+.border-eee{
+    border:#eee solid 1px;
+}
+.border-top{
+    border-top: #eee solid 1px;
+}
+.border-bottom-eee{
+    border-bottom: #eee solid 1px!important;
+}
+.border-left-eee{
+    border-left: #eee solid 1px;
+}
+.border-right-eee{
+    border-right: #eee solid 1px;
+}
+
+.big-font-1_2x,
+.big-font-1_2x *{
+    font-size: 1.2rem!important;
+}
+.big-font-1_5x,
+.big-font-1_5x *{
+    font-size: 1.5rem;
+}
+.big-font-1_7x,
+.big-font-1_7x *{
+    font-size: 1.7rem;
+}
+.big-font-2x,
+.big-font-2x *{
+    font-size: 2rem;
+}
+.small-font,
+.small-font *{
+    font-size: .9rem!important;
+}
+
+.height-4x{
+    height: 4rem;
+}
+.height-3x{
+    height: 3rem;
+}
+.height-2x{
+    height: 2rem;
+}
+
+.line-height-4x{
+    line-height: 4rem;
+}
+.line-height-3x{
+    line-height:3rem;
+}
+.line-height-2{
+    line-height: 2rem;
+}
+
+.float-left{
+    float: left;
+}
+.float-right{
+    float: right;
+}
+.block{
+    display: block!important;
+}
+.inline{
+    display: inline;
+}
+.block-2{
+    width: 50%;
+    float: left;
+}
+.block-2-10{
+    width: 10%;
+    float: left;
+}
+.block-2-15{
+    width: 15%;
+    float: left;
+}
+.block-2-20{
+    width: 20%;
+    float: left;
+}
+.block-2-30{
+    width: 30%;
+    float: left;
+}
+.block-2-40{
+    width: 40%;
+    float: left;
+}
+.block-2-60{
+    width: 60%;
+    float: left;
+}
+.block-2-70{
+    width: 70%;
+    float: left;
+}
+.block-2-80{
+    width: 80%;
+    float: left;
+}
+.block-2-85{
+    width: 85%;
+    float: left;
+}
+.block-2-90{
+    width: 90%;
+    float: left;
+}
+.block-3{
+    width: 33.3%;
+    float: left;
+}
+.block-4{
+    width: 25%;
+    float: left;
+}
+.border-none{
+    border:none;
+}
+
+.width-full{
+    width: 100%;
+}
+.width-percent-90{
+    width: 90%!important;
+}
+.width-percent-80{
+    width: 80%!important;
+}
+.width-percent-70{
+    width: 70%!important;
+}
+.width-percent-60{
+    width: 60%!important;
+}
+.width-percent-50{
+    width: 50%!important;
+}
+.width-percent-40{
+    width: 40%!important;
+}
+.width-percent-30{
+    width: 30%!important;
+}
+.width-percent-15{
+    width: 15%!important;
+}
+.width-percent-20{
+    width: 20%!important;
+}
+.width-percent-10{
+    width: 10%!important;
+}
+.width-percent-5{
+    width: 5%!important;
+}
+.padding-tb-1x{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+.padding-lr-1x{
+    padding-left: 1rem;
+    padding-right:  1rem;
+}
+.margin-top-1x{
+    margin-top: 1rem!important;
+}
+.block-center{
+    margin: auto;
+}
+.background-fff{
+    background: #fff;
+}
+.background-none{
+    background: none;
+}
+.background-none *{
+    background: none!important;
+}
+.response-img-width{
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.response-img-height{
+    height: 100%;
+    margin: auto;
+    width: auto;
+    display: block;
+}
+.hidden{
+    display: none!important;
+    visibility: hidden;
+}
+.textarea-no-resize{
+    resize: none;
+}
+.textarea > textarea{
+    padding: 5%;
+}
+.relative{
+    position: relative;
+}
+.overflow-hidden{
+    overflow:hidden;
+}
+.mask{
+    position: absolute;
+    top:0;
+    left:0;
+    height: 100%;
+    width: 100%;
+    background: #fff;
+    z-index: 10;
+}
+.font-omit{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.table > .row:after,
+.clear-both:after{
+    content: "";
+    display: block;
+    height: 0;
+    visibility: hidden;
+    clear: both;
+    width: 0;
+}
+
+/*table style*/
+.table > .row{
+    height: 3rem;
+    line-height: 3rem;
+    width: 80%;
+    margin: auto;
+    clear: both;
+    overflow: hidden;
+}
+@media screen and (min-width: 1023px){
+    .table > .row:hover >.col{
+        background: #ededed;
+    }
+}
+.table > .row.clicked >.col{
+    background: #ededed;
+}
+.table > .row *{
+    font-size: .9rem;
+}
+.table > .row > .col{
+    float: left;
+}
+.table > .row > .col.percent-5{
+    width: 5%;
+}
+.table > .row > .col.percent-10{
+    width: 10%;
+}
+.table > .row > .col.percent-15{
+    width: 15%;
+}
+.table > .row > .col.percent-20{
+    width: 20%;
+}
+.table > .row > .col.percent-30{
+    width: 30%;
+}
+.table > .row > .col.percent-40{
+    width: 40%;
+}
+.table > .row > .col.percent-50{
+    width: 50%;
+}
+.table > .row > .col.percent-60{
+    width: 60%;
+}
+.table > .row > .col.percent-70{
+    width: 70%;
+}
+.table > .row > .col.percent-80{
+    width: 80%;
+}
+.table > .row > .col.percent-90{
+    width: 90%;
+}

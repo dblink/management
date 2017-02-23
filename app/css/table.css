@@ -1,0 +1,39 @@
+.data-table{
+    width: 100%;
+}
+.data-table *{
+    font-size: .9rem;
+}
+.data-rows,
+.data-title{
+    height: 3rem;
+    line-height: 3rem;
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    overflow: hidden;
+}
+.data-title:after,
+.data-rows:after{
+    content: "";
+    display: block;
+    height: 0;
+    width: 0;
+    clear: both;
+    visibility: hidden;
+}
+.data-cols{
+    float: left;
+}
+.data-rows:hover{
+    background: #ededed;
+}
+.data-rows.clicked{
+    background: #ededed;
+}
+.table-operate a{
+    display: block;
+    float: left;
+    width: 50%;
+    text-align: center;
+}
