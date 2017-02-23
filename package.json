@@ -1,5 +1,5 @@
 {
-  "name": "webServer",
+  "name": "web",
   "version": "1.1.1",
   "description": "mytest",
   "main": "http.js",
@@ -8,7 +8,7 @@
     "build": "webpack --progress --colors",
     "build-watch": "webpack --progress --colors --watch"
   },
-  "author": "",
+  "author": "lzy",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^6.7.2",
@@ -29,5 +29,16 @@
   "dependencies": {
     "react": "^15.4.2",
     "react-dom": "^15.4.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dblink/management.git"
+  },
+  "keywords": [
+    "65345844lzy32"
+  ],
+  "bugs": {
+    "url": "https://github.com/dblink/management/issues"
+  },
+  "homepage": "https://github.com/dblink/management#readme"
 }
