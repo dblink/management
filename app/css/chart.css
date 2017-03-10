@@ -1,0 +1,29 @@
+.lineChart{
+    width: 1000px;
+    margin: auto;
+    position: relative;
+}
+.lineChart .line{
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.dataList{
+    position: absolute;
+    width: 100px;
+    background: rgba(0, 0, 0, 0.49);
+    color: #fff;
+    display: none;
+    font-size: 14px;
+    z-index: 2;
+}
+
+/*form*/
+.checkboxGroup{
+    padding: 0 10px;
+    margin-left: 10px;
+}
+.checkboxGroup label{
+    font-size: 14px;
+    vertical-align: text-top;
+}

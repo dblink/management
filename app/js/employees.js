@@ -1,9 +1,6 @@
 /**
  * Created by Administrator on 2017/2/13.
  */
-/**
- * Created by Administrator on 2017/1/13.
- */
 import {} from "../css/index.css";
 import React, { Component } from 'react'
 import storage from './component/storageOperation';
@@ -107,7 +104,8 @@ class Employees extends Component {
       {text: "园区", value: "0"},
       {text: "吴中", value: "1"},
       {text: "湖西", value: "2"},
-      {text: "吴中二部", value: "3"}
+      {text: "吴中二部", value: "3"},
+      {text: "湖西二部", value: "4"}
     ];
     this.showList = this.showList.bind(this);
     this.request = request.bind(this);
@@ -313,9 +311,9 @@ class Employees extends Component {
           <p className="selectGroup">员工查询</p>
           <Input placeholder="员工手机号" operate={{onChange: this.inputSelect}} name="mobile"/>
           <Input placeholder="员工姓名" operate={{onChange: this.inputSelect}} name="empName"/>
-          <Select option={this.state.company.slice(1)} operate={{onChange: this.allSelect}} name="company" tip="所属公司"
+          <Select option={this.state.company} operate={{onChange: this.allSelect}} name="company" tip="所属公司"
                   value={this.state.parameter.company}/>
-          <Select option={this.state.roleId.slice(1)} name="roleID" operate={{onChange: this.leaderSelect}} tip="选择角色"
+          <Select option={this.state.roleId} name="roleID" operate={{onChange: this.leaderSelect}} tip="选择角色"
                   value={this.state.parameter.roleID}/>
           <Select option={this.state.leader} name="chief" operate={{onChange: this.inputSelect}} tip="选择上级"
                   value={this.state.parameter.chief}/>

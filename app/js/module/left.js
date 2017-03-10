@@ -39,6 +39,9 @@ class Left extends Component {
     if(location.pathname.indexOf("emp") !== -1){
       clicked = "1";
     }
+    if(location.pathname.indexOf("statistics") !== -1){
+      clicked = "2";
+    }
     return (
       <div className="block-2-15 height-full phone-bottom-bar">
         <div className="user-info clear-both phone-hidden">

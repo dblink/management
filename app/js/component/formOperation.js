@@ -47,7 +47,7 @@ function inputChangeDelay(){
 }
 //改变图片
 function imageChange (e){
-  let src =e.target.src+ new Date().getTime();
+  let src =e.target.src.split("=")[0]+"=" + new Date().getTime();
   this.setState({
     image: src
   })

@@ -93,8 +93,9 @@
 }
 @media screen and (min-width: 601px) {
     .dataModule-main {
-        float: left;
         margin: 1rem 0 0 1rem;
+        display: inline-block;
+        vertical-align: top;
     }
 }
 @media screen and ( min-width: 539px) and (max-width: 1023px){

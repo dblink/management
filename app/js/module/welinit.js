@@ -5,7 +5,8 @@ import React,{ Component } from 'react';
 import storage from '../component/storageOperation';
 import Module from '../component/welMoudle';
 import welOperation from '../component/welOperation';
-import chart from '../component/chart';
+import {request} from '../component/request';
+import {pieChart} from '../component/chart';
 import {} from '../../css/page.css';
 import loading from '../../img/loading.gif';
 class WelInit extends Component {
@@ -30,7 +31,12 @@ class WelInit extends Component {
       }
       array.push(line);
     });
-    number = array.join("")+"."+small;
+    if(small){
+      number = array.join("")+"."+small;
+    }else{
+      number = array.join("");
+    }
+
     return number;
   }
 
@@ -52,7 +58,7 @@ class WelInit extends Component {
           storage.getStorage().GroupID > 10001 ?
             <div className="dataModule-main relative">
               <Title data="本月即将到期客户(人)"/>
-              <Body data={this.props.data.expireLend.count} onClick={jumpTo} id="expireLend"/>
+              <Body data={this.props.data.expireLend ? this.props.data.expireLend.count : <img src={loading} />} onClick={jumpTo} id="expireLend"/>
               <DateTime data="时间" time={time}/>
             </div> :
             <div className="dataModule-main relative">
@@ -109,7 +115,7 @@ class Inside extends Component {
     for (let i = 0; i < canvasArray.length; i++){
       let line = canvasArray[i];
       let empId = line.getAttribute("data-empId");
-      chart.pieChart(line, propsPercent[empId]);
+      pieChart(line, propsPercent[empId]);
     }
   }
 
@@ -118,6 +124,7 @@ class Inside extends Component {
     const Body = Module.Body;
     const Footer = Module.Footer;
     const SwitchKey = Module.FunctionKey;
+    const Down = Module.Download;
     return (
       <div className="clear-both">
         {
@@ -153,13 +160,14 @@ class Inside extends Component {
               <div className="dataModule-main relative" key={key}>
                 <Title data={line.Company} name={line.EmpName} ranking={key+1} role={line.Role}
                        chiefName={this.props.chiefName}/>
+                <Down href={"/api/Home/outPutExcle?token="+storage.getToken()+"&empId="+line.EmpId } />
                 <Body data={ line.img ? canvas : this.format(line.TotalMoney)}
                       onClick={line.Role < 10007 ? jumpTo : ""} id={line.EmpId} truth={this.props.state}/>
-                <SwitchKey data={ line.img ? "点击查看数据": "查看饼状图"}
-                           func={this.props.imgPercent} id={line.EmpId} keyId={key}/>
+                <Footer left={<SwitchKey data={ line.img ? "查看数据": "查看饼状图"} func={this.props.imgPercent} id={line.EmpId} keyId={key}/>}
+                        right={<SwitchKey data={ line.more ? "收起" : "更多数据"} func={this.props.clickMore} id={line.EmpId} keyId={key} roleId={line.roleId}/>} />
                 <Footer left={"业绩占比："+line.Percent.toFixed(2)+"%"} right={"所有金额："+line.AllTotalMoeny.toFixed(0)}/>
-                <Footer left={"到期金额："+line.ExpireTotalMoeny} right={"续期投资："+line.RenewalLendMoeny}/>
-                <Footer left={"新增金额："+line.NewLendMoeny} right={"新增注册："+line.NewRegisterCount}/>
+                {line.more ? <Footer left={"到期金额："+line.ExpireTotalMoeny} right={"续期投资："+line.RenewalLendMoeny}/>:""}
+                {line.more ? <Footer left={"新增金额："+line.NewLendMoeny} right={"新增注册："+line.NewRegisterCount}/> :""}
               </div>
             )
           })

@@ -15,7 +15,8 @@ const requireAuth = (nextState, replace) =>{
   }
 };
 const jumpIndex = (nextState, replace) =>{
-  if (storage.getToken()){
+  let token = storage.getToken();
+  if (token){
     replace({pathname: "/index"});
   }
 };
@@ -35,7 +36,7 @@ const isRootShowEmployee = (nextState, replace) =>{
 
 const onlySmall10002 = (nextState, replace) =>{
   requireAuth(nextState, replace);
-  if (storage.getStorage().ID >= 10002){
+  if (storage.getStorage().GroupID >= 10002){
     replace({pathname: "/index"})
   }
 };

@@ -10,6 +10,8 @@ import NewLendList from './newLendList';
 import ExpireLend from './expireLend';
 import Customer from './customer';
 import Employees from './employees';
+import Count from './count';
+//import Maintenance from './maintenance'; //维护页
 import Undefined from './404';
 import {AdminRoutes , JumpIndex, IsRoot, IsRootShowEmployee, OnlySmall10002} from './component/islogin';
 
@@ -31,6 +33,7 @@ class Rout extends Component{
           <Route path="/truth/:id" component={Welcome} onEnter={OnlySmall10002} />
           <Route path="/index(/:id)" component={Welcome} onEnter={AdminRoutes} />
           <Route path="/emp/emplist.html" component={Employees} onEnter={IsRootShowEmployee} />
+          <Route path="/statistics/statistics.html" component={Count} onEnter={AdminRoutes} />
           <Route path="/customer/:id" component={Customer} onEnter={AdminRoutes} />
           <Route path="/**" component={Undefined} onEnter={AdminRoutes}/>
         </Route>

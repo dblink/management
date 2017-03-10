@@ -59,18 +59,16 @@ input[type="submit"]{
     background: #1667A9;
 }
 body,.normal-bg-color{
-    background: #eee;
+    background: #fafafa;
 }
 .white-bg-color{
     background: #fff;
 }
 
-.tap,
-.checkbox{
+.tap{
     position: relative;
 }
-.tap:before,
-.checkbox:before{
+.tap:before{
     content: '';
     position: absolute;
     top:0;

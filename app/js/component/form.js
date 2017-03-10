@@ -113,4 +113,15 @@ Select.defaultProps = {
   value: "null"
 };
 
-export {Title,Tip,Input,Select,Close}
+//checkbox
+class Checkbox extends Component {
+  render(){
+    return <span onClick={this.props.onClick} className="checkboxGroup" style={{"border-bottom": "2px solid "+this.props.color}}>
+      <input type="checkbox" value={this.props.value} name={this.props.name} data-position={this.props.position}
+             checked = {this.props.list.indexOf(this.props.position.toString()) !== -1 ? "checked" : ""} />
+      <label>{this.props.text}</label>
+    </span>
+  }
+}
+
+export {Title,Tip,Input,Select,Close, Checkbox}

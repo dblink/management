@@ -202,7 +202,8 @@ class QuitJob extends Component {
     this.action = this.action.bind(this);
   }
 
-  action(){
+  action(e){
+    e.preventDefault();
     this.request("dimission", ()=>{
       this.props.closeModal("yes");
     });
@@ -395,7 +396,7 @@ class ChangePassword extends Component {
         CheckCode: "",
         empId: storage.getStorage().ID
       },
-      image: "http://192.168.1.110:8070/http/service/vcode?tip="+new Date().getTime(),
+      image: "/http/service/vcode?tip="+new Date().getTime(),
       send: "发送验证码",
       tip: {
         text: "",
@@ -506,7 +507,7 @@ class ChangePassword extends Component {
   render(){
     return (
       <form className="form" onSubmit={this.action}>
-        <Close onClick={this.props.closeModal}/>
+        {this.props.noClose ? "" : <Close onClick={this.props.closeModal}/>}
         <Title title="修改密码"/>
         <Tip color={this.state.tip.color} content={this.state.tip.text} closeTip={this.closeTip}
              tipState={this.state.tipState}/>

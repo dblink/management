@@ -16,6 +16,11 @@ class IndexModule extends Component {
     this.showModal = this.showModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.contentModal = this.contentModal.bind(this);
+    if(props.firstLogin){
+      this.state = {
+        showModal: true
+      }
+    }
   }
 
   loginOut(){
@@ -42,7 +47,7 @@ class IndexModule extends Component {
   }
 
   contentModal(){
-    return <ChangePassword closeModal={this.closeModal}/>
+    return <ChangePassword closeModal={this.closeModal} noClose={this.props.firstLogin ? true : false }/>
   }
 
   render(){

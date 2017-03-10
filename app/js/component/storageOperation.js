@@ -13,9 +13,13 @@ const getToken = (name)=>{
   let _days = 20;
   let _nowTime = new Date().getTime();
   if(!localStorage.token|| !localStorage.time){
-    return "";
+    return false;
   }
-  return _nowTime - localStorage.time > _days * 60 * 1000 ? "" && localStorage.clear() : localStorage.token;
+  if(_nowTime - localStorage.time > _days * 60 * 1000){
+    localStorage.clear();
+    return false;
+  }
+    return localStorage.token;
 };
 
 
@@ -48,6 +52,7 @@ let storage = {
       localStorage[parameter] = false;
     }
     localStorage.data = false;
+    localStorage.time = "";
   },
   jump: (url) =>{
     browserHistory.push(url);

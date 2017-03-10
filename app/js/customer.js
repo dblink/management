@@ -123,7 +123,8 @@ class Customer extends Component {
       {text: "园区", value: "0"},
       {text: "吴中", value: "1"},
       {text: "湖西", value: "2"},
-      {text: "吴中二部", value: "3"}
+      {text: "吴中二部", value: "3"},
+      {text: "湖西二部", value: "4"}
     ];
     this.state.parameter.pageSize = (13 * document.getElementById("what").offsetHeight / 955).toFixed(0);
     this.state.history = "has";

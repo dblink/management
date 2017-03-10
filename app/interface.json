@@ -142,5 +142,41 @@
     "url":"/api/Employees/ChangePassword",
     "type": "post",
     "data": ["Token", "empId", "oldPassword", "newPassword", "MsgVCode"]
+  },
+  "getOtherStatistics": {
+    "Chinese": "请求到期金额，续期投资，新增金额，新增注册",
+    "url":"/api/Home/GetOtherStatistics",
+    "type": "get",
+    "data": ["token", "roleId", "eID"]
+  },
+  "getAuthority": {
+    "Chinese": "数据表权限获取",
+    "url":"/api/Employees/GetAuthority",
+    "type": "get",
+    "data": ["token"]
+  },
+  "getLine":{
+    "Chinese": "获取折线数据",
+    "url": "/api/home/GetMonthlyPerformance",
+    "type": "get",
+    "data": ["token","findType","empId","year"]
+  },
+  "getChartRole":{
+    "Chinese": "获取图表角色",
+    "url": "/api/Employees/GetRoleByStatistics",
+    "type": "get",
+    "data": ["token"]
+  },
+  "getTeam" :{
+    "Chinese": "获取团队",
+    "url": "/api/Employees/GetTeam",
+    "type": "get",
+    "data": ["token","company","role"]
+  },
+  "getPerson":{
+    "Chinese": "获取个人",
+    "url": "/api/Employees/GetPerson",
+    "type": "get",
+    "data": ["token","leaderID"]
   }
 }

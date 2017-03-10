@@ -1634,6 +1634,7 @@
             return;
           }
           func(data)
+
         }.bind(this),
         error: function (data){
           this.props.clearData();

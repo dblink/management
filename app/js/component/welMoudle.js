@@ -81,7 +81,8 @@ Body.defaultProps = {
 class FunctionKey extends Component{
   render(){
     return (
-      <div className="dataModule-date clear-both" onClick={this.props.func} id={this.props.id} data-key={this.props.keyId}>
+      <div className="dataModule-date clear-both" onClick={this.props.func} id={this.props.id} data-key={this.props.keyId}
+           data-role={this.props.roleId} data-id={this.props.empId}>
         <a className="text-center block">
           {this.props.data}
         </a>
