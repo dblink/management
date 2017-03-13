@@ -1,7 +1,7 @@
 .dataModule-main{
     min-height: 20rem;
     min-width: 20rem;
-    border: 1px solid #eee;
+    border: 1px solid #f9f9f9;
     border-radius: 5px;
     word-break: break-all;
 }

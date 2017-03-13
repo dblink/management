@@ -71,24 +71,36 @@ class Customer extends Component {
           attr: "AlotEmpName",
           setId: "ID",
           className: "width-percent-10",
-          dataClass: "href-color",
+          dataClass: storage.getStorage().Role <= 10001 ? "href-color" : "",
           format: (data)=>{
-            return <span data-show="EditorSalesman" name={data}>{data}</span>
+            if(storage.getStorage().Role <= 10001){
+              return <span data-show="EditorSalesman" name={data}>{data}</span>
+            }else{
+              return data
+            }
           },
           click: (e)=>{
-            this.showModal(e);
+            if(storage.getStorage().Role <= 10001){
+              this.showModal(e);
+            }
           }
         }, {
           title: "推荐人",
           attr: "EmpName",
           setId: "ID",
           className: "width-percent-15",
-          dataClass: "href-color",
+          dataClass: storage.getStorage().Role <= 10001 ? "href-color" : "",
           format: (data)=>{
-            return <span data-show="EditorCommend" name={data}>{data}</span>
+            if(storage.getStorage().Role <= 10001){
+              return <span data-show="EditorCommend" name={data}>{data}</span>
+            }else{
+              return data
+            }
           },
           click: (e)=>{
-            this.showModal(e);
+            if(storage.getStorage().Role <= 10001){
+              this.showModal(e);
+            }
           }
         }, {
           title: "投资明细",

@@ -6,6 +6,8 @@ body{
     height: 45px;
     line-height: 45px;
     font-size: .9rem;
+    overflow: hidden;
+    transition:.5s height;
 }
 .nav > li *{
     font-size: .9rem;
@@ -34,14 +36,14 @@ body{
 }
 .nav > li{
     position: relative;
-    border-bottom:1px solid #ddd;
+    /*border-bottom:1px solid #ddd;*/
     text-indent: 2rem;
     cursor: pointer;
 }
 .nav > li a{
     color: #333;
 }
-.nav > li.clicked:before{
+.nav span.clicked:before{
     content: "";
     position: absolute;
     width: 5%;
@@ -50,18 +52,25 @@ body{
     top: 0;
     background: #EA533F;
 }
-@media screen and (min-width: 1024px) {
-    .nav > li:hover {
-        background: #fff;
-    }
-    .nav > li:hover ul{
-        display: block;
-    }
+.nav span,
+.nav a{
+    display: block;
+    position: relative;
 }
+.nav a{
+    text-indent: 3rem;
+}
+.nav span:hover,
+.nav a:hover{
+    background: #fff;
+}
+/*.nav > li:hover ul{
+    display: block;
+}*/
 .nav > li:first-child{
-    border-top: 1px solid #ddd;
+   /* border-top: 1px solid #ddd;*/
 }
-.nav > li > ul {
+/*.nav > li > ul {
     display: none;
     position: absolute;
     top: -1px;
@@ -70,16 +79,9 @@ body{
     background: #fff;
     z-index: 1;
 }
-.nav > li > ul > li {
-    border-bottom:1px solid #ddd;
-    border-right: 1px solid #ddd;
-}
-.nav > li > ul > li:first-child{
-    border-top: 1px solid #ddd;
-}
 .nav > li > ul > li:hover {
-    background: #eee;
-}
+    background: #f0f0f0;
+}*/
 
 .bar{
     position: absolute;
@@ -87,7 +89,7 @@ body{
     background: #fff;
     padding: .5rem 5%;
     top: 0;
-    border-bottom: 1px solid #efefef;
+    border-bottom: 1px solid #f0f0f0;
 }
 .bar-nav,
 .login-option{

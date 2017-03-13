@@ -19,18 +19,30 @@ class Left extends Component {
         groupId: data.GroupID,
         token: data.Token
       },
-      menu:[]
+      menu:[],
+      update: "",
+      img: img
     };
     this.request = request.bind(this);
     if(storage.getStorage("menu")){
       this.state.menu = storage.getStorage("menu");
+      this.state.update = "getMenuFinish";
       return;
     }
     this.request("getMenu", (data)=>{
-      this.setState({menu: data});
+      this.setState({
+        menu: data,
+        update: "getMenuFinish"
+      });
       storage.setStorage(data, "menu");
     });
   }
+
+  changeNav(e){
+    let a = e.currentTarget;
+    a.setAttribute("style", "height:auto");
+  }
+
   render() {
     let clicked = "";
     if(location.pathname.indexOf("customer") !== -1){
@@ -45,7 +57,7 @@ class Left extends Component {
     return (
       <div className="block-2-15 height-full phone-bottom-bar">
         <div className="user-info clear-both phone-hidden">
-          <img src={img} className="width-percent-80 block block-center" />
+          <img src={this.state.img} className="width-percent-80 block-center response-img-width" />
           <div className="block-2-40 text-center">
             欢迎
           </div>
@@ -56,7 +68,7 @@ class Left extends Component {
             <a onClick={this.props.onClick} data-name="forget" >修改密码</a>
           </div>
         </div>
-        <List clicked={clicked} data={this.state.menu} />
+        <List clicked={clicked} click={this.changeNav} data={this.state.menu} />
       </div>
     )
   }

@@ -6,7 +6,7 @@ import { Select , Checkbox} from './component/form';
 import {inputChange} from './component/formOperation';
 import { request } from './component/request';
 import IndexModule from './module/index_module';
-import {lineChart} from './component/chart';
+import {columnChart} from './component/chart';
 import storage from './component/storageOperation';
 import {} from "../css/index.css";
 import {} from "../css/common.css";
@@ -16,6 +16,7 @@ import {} from "../css/chart.css";
 class Count extends Component {
   constructor(props){
     super(props);
+    let date = new Date();
     this.state = {
       parameter: {
         token: storage.getToken(),
@@ -24,7 +25,8 @@ class Count extends Component {
         empId: "",
         role: "",
         leaderID: "",
-        year: 2017
+        year: 2017,
+        month: date.getMonth().toString()
       },
       chartSetting: {
         currentClassName: "lineChart",
@@ -39,19 +41,25 @@ class Count extends Component {
       modeList: [],
       companyList: [],
       peopleList: [],
+      monthList: [],
       update: ""
     };
+    for(let i= 0; i <= date.getMonth(); i++ ){
+      this.state.monthList.push({Text: i+1+"月", Value: i });
+    }
     this.request = request.bind(this);
     this.request("getAuthority", ((data)=>{
       var _parameter = this.state.parameter;
-      _parameter.findType = data.CompanyList[0].Value;
+        _parameter.findType = data.ModeList[0].Value;
       var _checkList = this.state.checkList;
-      data.CompanyList.map((line, key)=>{
-        _checkList.push(key.toString());
-      });
+      if(data.CompanyList){
+        data.CompanyList.map((line, key)=>{
+          _checkList.push(key.toString());
+        });
+      }
       this.setState({
         modeList: data.ModeList,
-        companyList: data.CompanyList !== "null" ? data.CompanyList : [],
+        companyList: data.CompanyList ? data.CompanyList : [],
         parameter: _parameter,
         checkList: _checkList,
         update: "getMode&Company"
@@ -61,7 +69,7 @@ class Count extends Component {
     this.inputChange = inputChange.bind(this);
     this.selectChange = this.selectChange.bind(this);
     this.checkClick = this.checkClick.bind(this);
-    this.lineChart = lineChart;
+    this.columnChart = columnChart;
     this.getLineRequest = this.getLineRequest.bind(this);
     if (storage.getStorage().Role !== 10007){
       this.getRoleRequest();
@@ -70,7 +78,8 @@ class Count extends Component {
 
   getLineRequest(){
     this.request("getLine", ((data)=>{
-      let _checkList = [];
+      let _checkList;
+      _checkList = [];
       data.map((line, key)=>{
         _checkList.push(key.toString());
       });
@@ -114,8 +123,21 @@ class Count extends Component {
 
   getPerson(){
     this.request("getPerson", ((data)=>{
+      let _parameter;
+      if(!data.length){
+        _parameter = this.state.parameter;
+        _parameter.empId = [];
+        this.setState({
+          checkList: [],
+          lineList: [],
+          peopleList: [],
+          parameter: _parameter,
+          update: "getLine"
+        });
+        return;
+      }
       let _empId = [];
-      let _parameter = this.state.parameter;
+      _parameter = this.state.parameter;
       data.map((data)=>{
         _empId.push(data.Value.toString());
       });
@@ -136,9 +158,10 @@ class Count extends Component {
         this.getLineRequest();
         break;
       }
+      case "month":
       case "getLine":
       {
-        this.lineChart(this.state.chartSetting, this.state.lineList, this.state.checkList);
+        this.columnChart(this.state.chartSetting, this.state.lineList, this.state.checkList, this.state.parameter.month);
         this.setState({
           update: "getLineFinish"
         });
@@ -171,7 +194,6 @@ class Count extends Component {
             break;
           }
         }
-
         break;
       }
       case "role":
@@ -221,7 +243,7 @@ class Count extends Component {
     if (e.target.name === "findType" && e.target.value === "0"){
       _parameter.empId = "";
     }
-    if (e.target.name !== "leaderID"){
+    if (e.target.name !== "leaderID"  && e.target.name !== "month"){
       _parameter.leaderID = "";
       _people = [];
     }
@@ -238,6 +260,12 @@ class Count extends Component {
         <div className="selectCustomer">
           <Select option={this.state.yearList} name="year" operate={{onChange: this.selectChange}} tip="选择年份"
                   value={this.state.parameter.year}/>
+          {
+            this.state.monthList.length ?
+              <Select option={this.state.monthList} name="month" operate={{onChange: this.selectChange}} tip="请选择月份"
+                      value={this.state.parameter.month}/>
+              : ""
+          }
           <Select option={this.state.modeList} name="findType" operate={{onChange: this.selectChange}} tip="选择筛选模式"
                   value={this.state.parameter.findType}/>
           {this.state.companyList.length && this.state.parameter.findType.toString() !== "0" ?

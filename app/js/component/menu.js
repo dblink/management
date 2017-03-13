@@ -6,12 +6,14 @@ import { Link, Redirect} from 'react-router';
 class Li extends Component {
   render(){
     return (
-      <li className={this.props.className}>
+      <li onClick={this.props.click}>
         {this.props.data.Url
           ? <Link to={this.props.data.Url}>
           {this.props.data.MeunName}
         </Link>
-          : this.props.data.MeunName}
+          : <span className={this.props.className}>
+          {this.props.data.MeunName}
+        </span>}
 
         {this.props.data.Items
           ? <List data={this.props.data.Items}/>
@@ -25,7 +27,7 @@ class List extends Component {
     return (
       <ul className="nav">
         {this.props.data.map((data, key) =>{
-          return <Li data={data} key={key} className={key.toString() === this.props.clicked ? "clicked" : ""}/>
+          return <Li data={data} key={key} click={this.props.click} className={key.toString() === this.props.clicked ? "clicked" : ""}/>
         })}
       </ul>
     )

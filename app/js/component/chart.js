@@ -52,6 +52,8 @@ function LineChart(json){
   this.hiddenKey = [];
 }
 LineChart.prototype = {
+  constructor: LineChart,
+
   generateLineCanvas: function (){
     var _canvas = document.createElement('canvas');
     _canvas.height = this._canvas().height;
@@ -176,7 +178,7 @@ LineChart.prototype = {
     _context.font = "14px Arial";
     _context.textAlign = "right";
     _context.textBaseline = "middle";
-    _context.fillText(text, x, y);
+    _context.fillText(text, x -10, y);
   },
 
   drawRect: function (key){
@@ -196,7 +198,7 @@ LineChart.prototype = {
     _context.fillStyle = _this.color;
     _rectX = _this._marginX * (key) + _this.innerX + _columnMarX;
     _rectY = _this.height - _this._marginY * (_data.Money / _base);
-    _context.rect(_rectX, _rectY, _this._marginX *.3  , _this._marginY * _data.Money / _base);
+    _context.rect(_rectX, _rectY, _this._marginX * .3, _this._marginY * _data.Money / _base);
     _context.fill();
     _context.fillStyle = "#123456";
     _context.font = "14px Arial";
@@ -288,47 +290,156 @@ LineChart.prototype = {
   hideData: function (){
     var _div = document.getElementsByClassName("dataList")[0];
     _div.style.display = "none";
+  },
+
+  drawError: function (text){
+    let _canvas,
+      _context;
+    _canvas = this._canvas();
+    _context = _canvas.getContext("2d");
+    _context.fillStyle = "#123456";
+    _context.font = "20px Arial";
+    _context.textAlign = "center";
+    _context.textBaseline = "middle";
+    console.log(this.width, this.height);
+    _context.fillText(text, (_canvas.width)/2, (_canvas.height)/2);
   }
 };
 
-function _mapMax(expectList, data, option1, option2, choseMonth){
-  let recode = 1;
-  let length;
-  let returnJson = {};
-  data.map((line, key)=>{
-    if (expectList.indexOf(key.toString()) === -1){
-      return;
-    }
-    line[option1].map((data, key)=>{
-      if (!choseMonth){
-        recode = Math.max(recode, data[option2]);
-      }else if (choseMonth === key.toString()){
-        recode = Math.max(recode, data[option2]);
-      }
-    });
-  });
+let drawChart = {
+  lzy: {
+    _mapMax: (expectList, data, option1, option2, choseMonth)=>{
+      let recode;
+      recode = 1;
+      data.map((line, key)=>{
+        if (expectList.indexOf(key.toString()) === -1){
+          return;
+        }
+        line[option1].map((data, key)=>{
+          if(!choseMonth || choseMonth === key.toString()){
+            recode = Math.max(recode, data[option2]);
+          }
+        });
+      });
 
-  recode = Math.ceil(recode);
-  length = recode.toString().length;
-  recode = recode / 13 / Math.pow(10, length - 2);
-  recode = Math.ceil(recode);
-  recode = recode * Math.pow(10, length - 2);
-  returnJson.base = recode;
-  if (length < 5){
-    returnJson.times = 1;
-    returnJson.timesName = "元";
-  }else if (length === 6){
-    returnJson.times = Math.pow(10, length - 3);
-    returnJson.timesName = "千元";
-  }else if (length === 7){
-    returnJson.times = Math.pow(10, length - 3);
-    returnJson.timesName = "万元";
-  }else if (length === 8){
-    returnJson.times = Math.pow(10, length - 3);
-    returnJson.timesName = "百万";
+      recode = Math.ceil(recode);
+      return recode;
+    },
+    _getUnit: (recode)=>{
+      let length,
+        returnJson;
+      returnJson = {};
+      length = recode.toString().length;
+      recode = recode / 13 / Math.pow(10, length - 2);
+      recode = Math.ceil(recode);
+      recode = recode * Math.pow(10, length - 2);
+      returnJson.base = recode;
+
+      switch (length){
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+        {
+          returnJson.times = 1;
+          returnJson.timesName = "元";
+          break;
+        }
+        case 6:
+        {
+          returnJson.times = Math.pow(10, length - 3);
+          returnJson.timesName = "千元";
+          break;
+        }
+        case 7:
+        {
+          returnJson.times = Math.pow(10, length - 3);
+          returnJson.timesName = "万元";
+          break;
+        }
+        case 8:
+        {
+          returnJson.times = Math.pow(10, length - 3);
+          returnJson.timesName = "十万";
+        }
+      }
+      return returnJson;
+    },
+    _isFinishDrawBg: (_chart, checkList, list, month)=>{
+      let _maxJson;
+      _maxJson = drawChart.lzy._mapMax(checkList, list, "MonthList", "Money", month);
+      _maxJson = drawChart.lzy._getUnit(_maxJson);
+      _chart.base = _maxJson.base;
+      _chart.times = _maxJson.times;
+      _chart.timesName = _maxJson.timesName;
+      _chart.axisX = [];
+      list.map((line, key)=>{
+        if (checkList.indexOf(key.toString()) === -1){
+          return;
+        }
+        _chart.axisX.push(line.Name);
+      });
+      _chart.background();
+      return true;
+    },
+    _sumData: (expectList, data, option1, option2, month)=>{
+      let sum = {};
+      data.map((line, key)=>{
+        if (expectList.indexOf(key.toString()) === -1){
+          sum[option1] = []
+          return;
+        }
+
+        line[option1].map((data, key)=>{
+
+        })
+      })
+    },
+    columnChartOperation: (setting, list, checkList)=>{
+      let _vCanvas,
+        _chart,
+        _document,
+        _isFinishBg,
+        _currentElement;
+      _document = document;
+      _currentElement = _document.getElementsByClassName(setting.currentClassName)[0];
+      _currentElement.innerHTML = "";
+      _vCanvas = _document.createElement("canvas");
+      /*_vTip = _document.createElement("div");
+      _vTip.className = "dataList text-center";
+      _currentElement.appendChild(_vTip);*/
+
+      _vCanvas.height = 600;
+      _vCanvas.width = _currentElement.clientWidth;
+      _chart = new LineChart({element: _vCanvas});
+      if(!list.length){
+        _chart.drawError("没有任何数据");
+        _currentElement.appendChild(_vCanvas);
+        return;
+      }
+      _isFinishBg = drawChart.lzy._isFinishDrawBg(_chart, checkList, list, setting.month);
+      if(_isFinishBg){
+        _currentElement.appendChild(_vCanvas);
+      }
+      _chart.className = setting.lineClassName;
+
+      list.map((()=>{
+        let n = 0;
+        return (line, key)=>{
+          if (checkList.indexOf(key.toString()) === -1){
+            return;
+          }
+          _chart.color = setting.color[key];
+          _chart.data = line.MonthList[setting.month];
+          _chart.drawRect(n);
+          n = n + 1;
+        }
+      })())
+    }
   }
-  return returnJson;
-}
+};
+
 
 function _lineChartOperation(setting, list, checkList){
   let _canvas,
@@ -336,11 +447,13 @@ function _lineChartOperation(setting, list, checkList){
     _vTip,
     _chart,
     _maxJson,
+    _document,
     _currentElement;
-  _currentElement = document.getElementsByClassName(setting.currentClassName)[0];
+  _document = document;
+  _currentElement = _document.getElementsByClassName(setting.currentClassName)[0];
   _currentElement.innerHTML = "";
-  _vCanvas = document.createElement("canvas");
-  _vTip = document.createElement("div");
+  _vCanvas = _document.createElement("canvas");
+  _vTip = _document.createElement("div");
   _vTip.className = "dataList text-center";
   _currentElement.appendChild(_vTip);
 
@@ -351,6 +464,7 @@ function _lineChartOperation(setting, list, checkList){
   //_chart.className = setting.bgClassName;
 
   _maxJson = _mapMax(checkList, list, "MonthList", "Money");
+  _maxJson = _getUnit(_maxJson);
   _chart.base = _maxJson.base;
   _chart.times = _maxJson.times;
   _chart.timesName = _maxJson.timesName;
@@ -396,58 +510,23 @@ function _lineChartOperation(setting, list, checkList){
   });
 }
 
-function _columnChartOperation(setting, list, checkList){
-  let _canvas,
-    _vCanvas,
-    _vTip,
-    _chart,
-    _maxJson,
-    _currentElement;
-  _currentElement = document.getElementsByClassName(setting.currentClassName)[0];
-  _currentElement.innerHTML = "";
-  _vCanvas = document.createElement("canvas");
-  _vTip = document.createElement("div");
-  _vTip.className = "dataList text-center";
-  _currentElement.appendChild(_vTip);
+/*function _columnChartOperation(setting, list, checkList){
 
-  _vCanvas.height = 600;
-  _vCanvas.width = 1000;
-  _chart = new LineChart({element: _vCanvas});
-  _maxJson = _mapMax(checkList, list, "MonthList", "Money", "2");
-  _chart.base = _maxJson.base;
-  _chart.times = _maxJson.times;
-  _chart.timesName = _maxJson.timesName;
-  _chart.axisX = [];
-  list.map((line, key)=>{
-    if (checkList.indexOf(key.toString()) === -1){
-      return;
-    }
-    _chart.axisX.push(line.Name);
-  });
-  _chart.background();
-  _currentElement.appendChild(_vCanvas);
-  _chart.className = setting.lineClassName;
+}*/
 
-  list.map((()=>{
-    let n = 0;
-    return (line, key)=>{
-      if (checkList.indexOf(key.toString()) === -1){
-        return;
-      }
-      _chart.color = setting.color[key];
-      _chart.data = line.MonthList["2"];
-      _chart.drawRect(n);
-      n = n + 1;
-    }
-  })())
-}
-
-let pieChart = (canvas, data) =>{
+const pieChart = (canvas, data) =>{
   return _pieChart(canvas, data);
 };
 
-let lineChart = (setting, list, checkList) =>{
-  return _columnChartOperation(setting, list, checkList)
+const columnChart = (setting, list, checkList, month) =>{
+  if(month){
+    setting.month = month;
+  }
+  return drawChart.lzy.columnChartOperation(setting, list, checkList)
 };
 
-export {pieChart, lineChart}
+const lineChart = (setting, list, checkList) =>{
+  return _lineChartOperation(setting, list, checkList)
+};
+
+export {pieChart, lineChart, columnChart}

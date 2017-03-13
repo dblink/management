@@ -1,6 +1,6 @@
 .lineChart{
-    width: 1000px;
-    margin: auto;
+    width: 80%;
+    margin-left: 5%;
     position: relative;
 }
 .lineChart .line{
